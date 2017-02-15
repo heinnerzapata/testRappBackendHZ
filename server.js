@@ -1,6 +1,10 @@
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
 var port = process.env.PORT || 1337;
+
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 // Configuración
 app.configure(function() {
@@ -17,9 +21,19 @@ app.configure(function() {
 /*API REST MACHINES****************************************************/
 
 /*GET*/
-app.get('/api/machine', function (req, res) {
-
+app.get('/api/cubeSummation', (req, res) => {
     res.json(JSON.stringify(Machines));
+});
+
+app.post('/api/cubeSummation',(req,res) => {
+
+  let inputArray  = [];
+
+  if(req.body.term != '')
+    inputArray = req.body.term.split('\n');
+
+  console.log("recibido dato : %s",inputArray.length);
+
 
 });
 

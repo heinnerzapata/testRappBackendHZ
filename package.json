@@ -4,7 +4,8 @@
   "description": "test backend rappi",
   "main": "index.js",
   "dependencies": {
-      "express": "~3.x"
+    "body-parser": "^1.16.1",
+    "express": "~3.x"
   },
   "scripts": {
     "start": "node server.js"
