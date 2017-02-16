@@ -28,11 +28,15 @@ mainApp.controller('homeController',function homeController($scope,$http) {
                       'QUERY 1 1 1 2 2 2\n' +
                       'QUERY 2 2 2 2 2 2';
 
+                      
+
     $scope.sendData = function(data){
 
             $http.post("/api/cubeSummation", {term: data}, {headers: {'Content-Type': 'application/json'} })
                .then(function (response) {
-                   return response;
+                   
+                  $scope.outputText = response.data;
+
             });
 
     }

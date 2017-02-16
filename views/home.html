@@ -1,18 +1,26 @@
 <section id="homeSection">
-<div class="container">
+
+<div id="lblCubeSummationContainer">
+  
   <div class="row text-center">
-    <div class="col-xs-12">
-      <h1>Instructions</h1>
+   <div id="lblCubeSummationContainer" class="col-xs-12">
+      <h1 id="lblCubeSummation">3D Cube summation</h1>
     </div>
+  </div>
+
+</div>
+
+<div class="container">
+  <div class="row text-center">   
     <div class="col-xs-12 text-center">
-      <textarea id="txtInput" ng-model="inputText" rows="10" cols="50">
+      <textarea id="txtInput" class="txtTextArea" ng-model="inputText" rows="10" cols="50">
       </textarea>
     </div>
     <div class="col-xs-12 text-center">
-      <input type="button" value="calcular" ng-click="sendData(inputText)" />
+      <button id="btnCalcular" ng-click="sendData(inputText)">Sum</button>
     </div>
     <div class="col-xs-12 text-center">
-      <textarea id="txtResult" rows="10" cols="50">
+      <textarea ng-model="outputText" id="txtResult" class="txtTextArea" rows="10" cols="50" readonly="readonly">
       </textarea>
     </div>
 

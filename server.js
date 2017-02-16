@@ -2,6 +2,8 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var port = process.env.PORT || 1337;
+var CubeSum = require("./cubeSum.js"); 
+
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
@@ -25,15 +27,15 @@ app.get('/api/cubeSummation', (req, res) => {
     res.json(JSON.stringify(Machines));
 });
 
+
 app.post('/api/cubeSummation',(req,res) => {
+ 
+  let cubeSum = new CubeSum(req.body.term);
+  let answer = cubeSum.correr();
 
-  let inputArray  = [];
+  console.log("Answer : " + "\n" + "%s",answer);
 
-  if(req.body.term != '')
-    inputArray = req.body.term.split('\n');
-
-  console.log("recibido dato : %s",inputArray.length);
-
+  res.json(answer);
 
 });
 
