@@ -2,8 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var port = process.env.PORT || 1337;
-var CubeSum = require("./cubeSum.js"); 
-
+var CubeSum = require("./cubeSum.js");
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
@@ -20,8 +19,7 @@ app.configure(function() {
     app.use(express.methodOverride());
 });
 
-/*API REST MACHINES****************************************************/
-
+/*API REST****************************************************/
 /*GET*/
 app.get('/api/cubeSummation', (req, res) => {
     res.json(JSON.stringify(Machines));
@@ -29,7 +27,7 @@ app.get('/api/cubeSummation', (req, res) => {
 
 
 app.post('/api/cubeSummation',(req,res) => {
- 
+
   let cubeSum = new CubeSum(req.body.term);
   let answer = cubeSum.correr();
 
@@ -38,9 +36,12 @@ app.post('/api/cubeSummation',(req,res) => {
   res.json(answer);
 
 });
+/*API REST****************************************************/
 
+/*Server listening*/
 var server = app.listen(port, function () {
    var host = server.address().address
 
    console.log("Example app listening at http://%s:%s", host, port)
 })
+/*Server listening*/

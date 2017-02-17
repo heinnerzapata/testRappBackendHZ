@@ -9,7 +9,7 @@ function CubeSum(input) {
 }
 
 method.log  = function (text) {
-  
+
   //console.log(text)
   this._output = this._output + (String(text) + '\n');
   //if (document) document.querySelector('#output').innerText += text + '\n'
@@ -76,15 +76,15 @@ method.correrOperacion = function(operacion, matriz) {
 }
 
 method.correr = function() {
-  
-   // Save array with split  
+
+   // Save array with split
   if(this._input != '')
     this._inputArray = this._input.split('\n')
 
 	try {
 	    //if (document) document.querySelector('#output').innerText += ''
 	    //let inputArray = input.split('\n')
-	    if (this._inputArray.length < 3) console.log('Texto de entrada inválido') //throw new Error('Texto de entrada inválido') 
+	    if (this._inputArray.length < 3) console.log('Texto de entrada inválido') //throw new Error('Texto de entrada inválido')
 	    let lineaActual = 0
 	    let casos = parseInt(this._inputArray[ lineaActual++ ])
 
@@ -108,4 +108,3 @@ method.correr = function() {
 };
 
 module.exports = CubeSum;
-
